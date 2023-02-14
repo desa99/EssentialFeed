@@ -10,6 +10,6 @@ enum FeedLoadResult {
     case success([FeedItem])
     case failure(Error)
 }
-protocol FeedLoader {
+ protocol FeedLoader {
     func load(completion: @escaping (FeedLoadResult) -> Void)
 }

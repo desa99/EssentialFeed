@@ -15,8 +15,8 @@ public protocol HTTPClient {
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void)
 }
 public class RemoteFeedLoader {
-   private let url: URL
-   private let client: HTTPClient
+    private let url: URL
+    private let client: HTTPClient
     
     public enum Result: Equatable {
         case success([FeedItem])
@@ -26,18 +26,18 @@ public class RemoteFeedLoader {
         case connectivity
         case invalidData
     }
-   
-   public init(url: URL, client: HTTPClient) {
+    
+    public init(url: URL, client: HTTPClient) {
         self.url = url
         self.client = client
     }
     public func load(completion: @escaping (Result) -> Void) {
-
+        
         client.get(from: url) { result in
             switch result {
             case let .success(data, _):
-                if let _ = try? JSONSerialization.jsonObject(with: data) {
-                    completion(.success([]))
+                if let root = try? JSONDecoder().decode(Root.self, from: data){
+                    completion(.success(root.items))
                 } else {
                     completion(.failure(.invalidData))
                 }
@@ -48,4 +48,7 @@ public class RemoteFeedLoader {
             
         }
     }
+}
+private struct Root: Decodable {
+    let items: [FeedItem]
 }

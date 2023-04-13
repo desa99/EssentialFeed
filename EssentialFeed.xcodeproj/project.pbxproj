@@ -14,6 +14,7 @@
 		DB0BE35F299A741C00BB2FA8 /* FeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BE35E299A741C00BB2FA8 /* FeedLoader.swift */; };
 		DB0BE363299A850700BB2FA8 /* RemoteFeedLoaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB0BE362299A850700BB2FA8 /* RemoteFeedLoaderTests.swift */; };
 		DB269693299BB4C600FC90DA /* RemoteFeedLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB269692299BB4C600FC90DA /* RemoteFeedLoader.swift */; };
+		DB46022D29E83CD300CA34E4 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB46022C29E83CD300CA34E4 /* HTTPClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +36,7 @@
 		DB0BE35E299A741C00BB2FA8 /* FeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedLoader.swift; sourceTree = "<group>"; };
 		DB0BE362299A850700BB2FA8 /* RemoteFeedLoaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteFeedLoaderTests.swift; sourceTree = "<group>"; };
 		DB269692299BB4C600FC90DA /* RemoteFeedLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RemoteFeedLoader.swift; path = ../RemoteFeedLoader.swift; sourceTree = "<group>"; };
+		DB46022C29E83CD300CA34E4 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				DB269692299BB4C600FC90DA /* RemoteFeedLoader.swift */,
+				DB46022C29E83CD300CA34E4 /* HTTPClient.swift */,
 			);
 			path = "Feed API";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 			files = (
 				DB269693299BB4C600FC90DA /* RemoteFeedLoader.swift in Sources */,
 				DB0BE35F299A741C00BB2FA8 /* FeedLoader.swift in Sources */,
+				DB46022D29E83CD300CA34E4 /* HTTPClient.swift in Sources */,
 				DB0BE35D299A740D00BB2FA8 /* FeedItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

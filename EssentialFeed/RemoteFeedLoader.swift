@@ -38,9 +38,7 @@ public class RemoteFeedLoader {
                 }
             case .failure:
                 completion(.failure(.connectivity))
-                //print("remoteFeedLoaderconnectivity")
-            }
-            
+            } 
         }
     }
 }

@@ -152,7 +152,7 @@ final class RemoteFeedLoaderTests: XCTestCase {
         func complete(with error: Error, index: Int = 0) {
             messages[index].completion(.failure(error))
         }
-        func complete(withStatusCode code: Int,data: Data, index: Int = 0) {
+        func complete(withStatusCode code: Int, data: Data, index: Int = 0) {
             let response = HTTPURLResponse(url: requestURLs[index],
                                            statusCode: code,
                                            httpVersion: nil,
@@ -160,6 +160,11 @@ final class RemoteFeedLoaderTests: XCTestCase {
             messages[index].completion(.success(data, response))
         }
     }
+    var stub = [URL: URLSessionDataTask]()
+    func get(url: URL, task: URLSessionDataTask) {
+        stub[url] = task
+    }
+   
 
 }
 

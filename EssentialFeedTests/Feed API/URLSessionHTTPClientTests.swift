@@ -15,7 +15,6 @@ class HTTPClientURLSession {
         self.session = session
     }
     func get(from url: URL, completion: @escaping (HTTPClientResult) -> Void) {
-        let url = URL(string: "http://wrong-url")!
         session.dataTask(with: url) { _, _, error in
             if let error = error {
                 completion(.failure(error))
@@ -27,6 +26,22 @@ class HTTPClientURLSession {
 
 final class URLSessionHTTPClientTests: XCTestCase {
     
+    func test_getFromURL_performGETRequestWithURL() {
+        URLProtocolStub.startInterceptingRequest()
+        let sut = HTTPClientURLSession()
+        let url = URL(string: "http://any-url")!
+        
+        sut.get(from: url) {_ in}
+        
+        let exp = expectation(description: "Wait for completion")
+        URLProtocolStub.observeRequest { request in
+            XCTAssertEqual(request.url, url)
+            XCTAssertEqual(request.httpMethod, "GET")
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1.0)
+        URLProtocolStub.stopInterceptingRequest()
+    }
 
     func test_getFromURL_failsOnRequestError() {
         URLProtocolStub.startInterceptingRequest()
@@ -54,6 +69,7 @@ final class URLSessionHTTPClientTests: XCTestCase {
     
     private class URLProtocolStub: URLProtocol {
         private static var stub: Stub?
+        private static var requestObserver: ((URLRequest) -> Void)?
         
         private struct Stub {
             let data: Data?
@@ -70,8 +86,13 @@ final class URLSessionHTTPClientTests: XCTestCase {
         static func stopInterceptingRequest () {
             URLProtocol.unregisterClass(URLProtocolStub.self)
             stub = nil
+            requestObserver = nil
+        }
+        static func observeRequest(observe: @escaping (URLRequest) -> Void) {
+            requestObserver = observe
         }
         override class func canInit(with request: URLRequest) -> Bool {
+            requestObserver?(request)
             return true
         }
         override class func canonicalRequest(for request: URLRequest) -> URLRequest {

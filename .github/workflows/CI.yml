@@ -2,22 +2,22 @@ name: CI
 
 on:
 push:
-branches: [ "main" ]
+  branches: [ "main" ]
 pull_request:
-branches: [ "main" ]
+  branches: [ "main" ]
 
 jobs:
-build-and-test:
+  build-and-test:
 
-runs-on: macos-14.1.2
+    runs-on: macos-14.1.2
 
-steps:
-- uses: actions/checkout@v3
+    steps:
+    - uses: actions/checkout@v3
 
-- name: Select Xcode
-run: sudo xcode-select -switch /Applications/Xcode_15.1.app
+    - name: Select Xcode
+      run: sudo xcode-select -switch /Applications/Xcode_15.1.app
 
-- name: Buil and test
-run: xcodebuild clean build test -project EssentialFeed/EssentialFeed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
-name: CI
+   - name: Buil and test
+     run: xcodebuild clean build test -project EssentialFeed/EssentialFeed.xcodeproj -scheme "CI" CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO
+
 

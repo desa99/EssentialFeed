@@ -57,6 +57,7 @@
 		DB83FECA2B14C44B00EC3091 /* URLSessionHTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionHTTPClient.swift; sourceTree = "<group>"; };
 		DB9247222B3320650065D785 /* EssentialFeedAPIEndToEndTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EssentialFeedAPIEndToEndTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB9247242B3320650065D785 /* EssentialFeedAPIEndToEndTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EssentialFeedAPIEndToEndTests.swift; sourceTree = "<group>"; };
+		DB9247342B3A4A5A0065D785 /* CI.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = CI.xctestplan; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +90,7 @@
 		DB0BE33A299A71C400BB2FA8 = {
 			isa = PBXGroup;
 			children = (
+				DB9247342B3A4A5A0065D785 /* CI.xctestplan */,
 				DB0BE346299A71C400BB2FA8 /* EssentialFeed */,
 				DB0BE350299A71C500BB2FA8 /* EssentialFeedTests */,
 				DB9247232B3320650065D785 /* EssentialFeedAPIEndToEndTests */,

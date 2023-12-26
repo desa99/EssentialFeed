@@ -9,7 +9,16 @@
     }
   ],
   "defaultOptions" : {
-    "codeCoverage" : false
+    "codeCoverage" : {
+      "targets" : [
+        {
+          "containerPath" : "container:EssentialFeed.xcodeproj",
+          "identifier" : "DB0BE343299A71C400BB2FA8",
+          "name" : "EssentialFeed"
+        }
+      ]
+    },
+    "testExecutionOrdering" : "random"
   },
   "testTargets" : [
     {
@@ -17,6 +26,13 @@
         "containerPath" : "container:EssentialFeed.xcodeproj",
         "identifier" : "DB0BE34B299A71C500BB2FA8",
         "name" : "EssentialFeedTests"
+      }
+    },
+    {
+      "target" : {
+        "containerPath" : "container:EssentialFeed.xcodeproj",
+        "identifier" : "DB9247212B3320650065D785",
+        "name" : "EssentialFeedAPIEndToEndTests"
       }
     }
   ],
